@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvvvodfer4c1a"]
+
+[sub_resource type="Gradient" id="Gradient_ts1nn"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.709424, 0.567012, 0.0818124, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bx5ol"]
+gradient = SubResource("Gradient_ts1nn")
+
+[sub_resource type="Gradient" id="Gradient_uu1fo"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.385051, 0.554181, 0.828239, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_81qra"]
+gradient = SubResource("Gradient_uu1fo")
+
+[node name="Game" type="Node2D"]
+
+[node name="SandSprite" type="Sprite2D" parent="."]
+position = Vector2(300, 687.875)
+scale = Vector2(2.34375, 223.75)
+texture = SubResource("GradientTexture1D_bx5ol")
+
+[node name="SeaSprite" type="Sprite2D" parent="."]
+position = Vector2(300, 288)
+scale = Vector2(2.34375, 576)
+texture = SubResource("GradientTexture1D_81qra")
