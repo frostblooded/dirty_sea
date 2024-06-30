@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://haigi0yvbuad"]
+
+[ext_resource type="Texture2D" uid="uid://cu6ad75jyrma3" path="res://icon.svg" id="1_bcyjk"]
+
+[node name="Trash" type="RigidBody2D"]
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_bcyjk")
