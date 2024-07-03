@@ -1,10 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://haigi0yvbuad"]
+[gd_scene load_steps=4 format=3 uid="uid://haigi0yvbuad"]
 
+[ext_resource type="Script" path="res://scripts/trash.gd" id="1_0om7t"]
 [ext_resource type="Texture2D" uid="uid://cu6ad75jyrma3" path="res://icon.svg" id="1_bcyjk"]
+[ext_resource type="Texture2D" uid="uid://o6jo68l65jwi" path="res://assets/trash_shadow.png" id="3_hdgh6"]
 
-[node name="Trash" type="RigidBody2D"]
+[node name="Trash" type="RigidBody2D" node_paths=PackedStringArray("shadow")]
 gravity_scale = 0.0
+script = ExtResource("1_0om7t")
+shadow = NodePath("ShadowSprite")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_bcyjk")
+
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+texture = ExtResource("3_hdgh6")
