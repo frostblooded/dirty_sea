@@ -2,16 +2,17 @@
 
 [ext_resource type="Script" path="res://scripts/trash.gd" id="1_0om7t"]
 [ext_resource type="Texture2D" uid="uid://cu6ad75jyrma3" path="res://icon.svg" id="1_bcyjk"]
-[ext_resource type="Texture2D" uid="uid://o6jo68l65jwi" path="res://assets/trash_shadow.png" id="3_hdgh6"]
 
-[node name="Trash" type="RigidBody2D" node_paths=PackedStringArray("shadow")]
-gravity_scale = 0.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6drh"]
+size = Vector2(24, 24)
+
+[node name="Trash" type="RigidBody2D" groups=["trash"]]
+gravity_scale = 0.45
 script = ExtResource("1_0om7t")
-shadow = NodePath("ShadowSprite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_o6drh")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_bcyjk")
-
-[node name="ShadowSprite" type="Sprite2D" parent="."]
-texture = ExtResource("3_hdgh6")
