@@ -23,5 +23,6 @@ func shoot_trash(player: Player) -> void:
 	var trash: Trash = player.trash_scene.instantiate() as Trash
 	trash.linear_velocity = direction * player.trash_speed
 	trash.position = player.trash_spawn.global_position
+	trash.angular_velocity = randf() * player.trash_rotation_speed
 
 	get_tree().get_root().add_child(trash)

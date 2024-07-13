@@ -63,6 +63,10 @@ gdscript/warnings/confusable_local_usage=2
 window/size/viewport_width=800
 window/size/viewport_height=576
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/floatable_body/plugin.cfg")
+
 [input]
 
 interact={

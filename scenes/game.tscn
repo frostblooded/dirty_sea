@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvvvodfer4c1a"]
+[gd_scene load_steps=9 format=3 uid="uid://cvvvodfer4c1a"]
 
-[ext_resource type="Script" path="res://scripts/sea_area.gd" id="1_bkg8i"]
 [ext_resource type="PackedScene" uid="uid://cipl4wfygi7qj" path="res://scenes/player.tscn" id="1_mv7qe"]
+[ext_resource type="Script" path="res://addons/floatable_body/fluid_area_2d.gd" id="2_krsjs"]
 
 [sub_resource type="Gradient" id="Gradient_ts1nn"]
 offsets = PackedFloat32Array(1)
@@ -20,6 +20,8 @@ gradient = SubResource("Gradient_uu1fo")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_akq36"]
 size = Vector2(672, 128)
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_weqm6"]
+
 [node name="Game" type="Node2D"]
 
 [node name="SandSprite" type="Sprite2D" parent="."]
@@ -32,12 +34,19 @@ position = Vector2(464, 512)
 scale = Vector2(2.625, 128)
 texture = SubResource("GradientTexture1D_81qra")
 
-[node name="SeaArea" type="Area2D" parent="."]
-script = ExtResource("1_bkg8i")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SeaArea"]
-position = Vector2(464, 512)
-shape = SubResource("RectangleShape2D_akq36")
-
 [node name="Player" parent="." instance=ExtResource("1_mv7qe")]
 position = Vector2(64, 416)
+
+[node name="FluidArea2D" type="Area2D" parent="."]
+position = Vector2(464, 512)
+script = ExtResource("2_krsjs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FluidArea2D"]
+shape = SubResource("RectangleShape2D_akq36")
+
+[node name="WorldBoundary" type="StaticBody2D" parent="."]
+position = Vector2(800, 272)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary"]
+rotation = -1.57079
+shape = SubResource("WorldBoundaryShape2D_weqm6")
